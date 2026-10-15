@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WZG - TikTok Task Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="app">
+        <!-- AUTH VIEW -->
+        <div id="auth-view" class="view active">
+            <div class="banner-slider">
+                <div class="slides">
+                    <img src="https://via.placeholder.com/600x300/111/FFD700?text=WZG+Mr+Bean+Banner+1" class="slide active" alt="Banner 1">
+                    <img src="https://via.placeholder.com/600x300/111/FFD700?text=WZG+Earn+Daily+Mr+Bean+2" class="slide" alt="Banner 2">
+                </div>
+            </div>
+
+            <div class="auth-card gold-border">
+                <h2><i class="fas fa-crown gold-text"></i> WZG Platform</h2>
+                <div class="tab-buttons">
+                    <button class="tab-btn active" type="button" onclick="switchAuthTab('login')">Login</button>
+                    <button class="tab-btn" type="button" onclick="switchAuthTab('register')">Register</button>
+                    <button class="tab-btn" type="button" onclick="switchAuthTab('forgot')">Recover</button>
+                </div>
+
+                <!-- LOGIN -->
+                <div id="login-form" class="auth-form active">
+                    <input type="text" id="login-phone" placeholder="Phone Number (0795140634)">
+                    <input type="password" id="login-pass" placeholder="Password (admin123)">
+                    <button class="gold-btn" type="button" onclick="handleLogin()">Login via WhatsApp OTP</button>
+                </div>
+
+                <!-- REGISTER -->
+                <div id="register-form" class="auth-form">
+                    <input type="text" id="reg-phone" placeholder="Phone Number">
+                    <input type="password" id="reg-pass" placeholder="Create Password">
+                    <input type="text" id="reg-invite" placeholder="Invitation Code">
+                    <button class="gold-btn" type="button" onclick="handleRegister()">Register Account</button>
+                </div>
+
+                <!-- FORGOT -->
+                <div id="forgot-form" class="auth-form">
+                    <input type="text" id="forgot-phone" placeholder="Registered Phone Number">
+                    <button class="gold-btn" type="button" onclick="requestPasswordReset()">Send Recovery OTP</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD VIEW -->
+        <div id="dashboard-view" class="view">
+            <header class="gold-header">
+                <h3><i class="fas fa-crown"></i> WZG Dashboard</h3>
+                <button class="logout-btn" type="button" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </header>
+
+            <div class="wallet-section">
+                <div class="wallet-box gold-border">
+                    <h4>Earn Wallet</h4>
+                    <p id="earn-wallet-balance">UGX 0</p>
+                </div>
+                <div class="wallet-box gold-border">
+                    <h4>Main Wallet</h4>
+                    <p id="main-wallet-balance">UGX 0</p>
+                </div>
+            </div>
+
+            <div class="nav-bar">
+                <button type="button" onclick="switchTab('tasks')"><i class="fas fa-tasks"></i> Tasks</button>
+                <button type="button" onclick="switchTab('levels')"><i class="fas fa-layer-group"></i> Levels</button>
+                <button type="button" onclick="switchTab('wallet-actions')"><i class="fas fa-wallet"></i> Wallet</button>
+                <button type="button" onclick="switchTab('team')"><i class="fas fa-users"></i> Team</button>
+                <button type="button" onclick="switchTab('turntable')"><i class="fas fa-dharmachakra"></i> Wheel</button>
+                <button type="button" onclick="switchTab('salaries')"><i class="fas fa-award"></i> Salaries</button>
+                <button type="button" onclick="switchTab('marketplace')"><i class="fas fa-store"></i> Market</button>
+                <button id="admin-tab-btn" style="display:none;" type="button" onclick="switchTab('admin')"><i class="fas fa-shield-alt"></i> Admin</button>
+            </div>
+
+            <div id="tab-content" class="tab-content-area"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
+                  
