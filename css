@@ -1,0 +1,10 @@
+.view {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    padding: 15px;
+}
+
+.view.active {
+    display: flex;
+}
